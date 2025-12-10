@@ -1,11 +1,18 @@
 .title {
-    background-color:#e0fbfc;
-    color: #293241;
+    background-color:#EFECE3;
+    color: #000000;
     min-height: 10vh;
     width: 100vw;
     margin: 0;
     display: flex;
     align-items: center;    /* Centers vertically */
+}
+
+.logo {
+  position: absolute;
+  top: 2px;
+  right: 50px;
+  max-height: 10%;
 }
 
 /* Set height of body and the document to 100% to enable "full page tabs" */
@@ -17,8 +24,8 @@ body, html {
 
 /* Style tab links */
 .tablink {
-  background-color: #ee6c4d;
-  color: #293241;
+  background-color: #4A70A9;
+  color: #000000;
   float: left;
   border: none;
   outline: none;
@@ -36,18 +43,37 @@ body, html {
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: #293241;
+  color: #000000;
   display: none;
   padding: 50px 20px;
   height: 100%;
 }
 
-.jonImg {
-  display: flex;
+table, th, td {
+        color: #000000;
+        border: 3px solid #4A70A9;
+        padding: 20px;
+        border-collapse:collapse;
+        font: 'Lucida-Sans';
 }
 
-#Home {background-color: #e0fbfc}
-#ProblemRepository {background-color: #e0fbfc}
-#ManimVisualizer {background-color: #e0fbfc}
-#Hackpack {background-color: #e0fbfc}
-#About {background-color: #e0fbfc}
+.team {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+.document {
+  display: flex;
+  background-color: white;
+}
+
+#Home {background-color: #EFECE3}
+#ProblemRepository {background-color: #EFECE3}
+#ManimVisualizer {background-color: #EFECE3}
+#Hackpack {background-color: #EFECE3}
+#About {background-color: #EFECE3}

@@ -7,13 +7,14 @@
         <div class="title">
                  <h1>Competitive Programming Primer</h1>
         </div>
-        
 
-        <button class="tablink" onclick="openPage('Home', this, '#3d5a80', '#98c1d9')" id="defaultOpen">Home</button>
-        <button class="tablink" onclick="openPage('ProblemRepository', this, '#3d5a80', '#98c1d9')">Problem Repository</button>
-        <button class="tablink" onclick="openPage('ManimVisualizer', this, '#3d5a80', '#98c1d9')">Manim+ Visualizer</button>
-        <button class="tablink" onclick="openPage('Hackpack', this, '#3d5a80', '#98c1d9')">Hackpack Download</button>
-        <button class="tablink" onclick="openPage('About', this, '#3d5a80', '#98c1d9')">About Us</button>
+        <img class="logo" src="icpc-logo.png" alt="ICPC Logo">
+
+        <button class="tablink" onclick="openPage('Home', this, '#8FABD4', '#000000')" id="defaultOpen">Home</button>
+        <button class="tablink" onclick="openPage('ProblemRepository', this, '#8FABD4', '#000000')">Problem Repository</button>
+        <button class="tablink" onclick="openPage('ManimVisualizer', this, '#8FABD4', '#000000')">Manim+ Visualizer</button>
+        <button class="tablink" onclick="openPage('Hackpack', this, '#8FABD4', '#000000')">Hackpack Download</button>
+        <button class="tablink" onclick="openPage('About', this, '#8FABD4', '#000000')">About Us</button>
 
         <div id="Home" class="tabcontent">
                 <h2 style="text-align: center;" ><br>Welcome to the website!</h2>
@@ -34,6 +35,45 @@
                 </p>
 
                 <h3>Suggested Problems</h3>
+                <table>
+                        <th>DIFFICULTY</th>
+                        <th>PROBLEM</th>
+                        <th>REGION</th>
+
+                        <tr>
+                                <th rowspan="2">Trivial</th>
+                                <td>Velkomin!</td>
+                                <td>SOUTHEAST</td>
+                                <tr>
+                                <td>Til hamingju</td>
+                                <td>SOUTH CENTRAL</td>
+                                </tr>
+
+                                <th rowspan="2">Easy</th>
+                                <td>Birthday Memorization</td>
+                                <td>ROCKY MOUNTAIN</td>
+                                <tr>
+                                <td>Skammstöfun</td>
+                                <td>MID-ATLANTIC USA</td>
+                                </tr>
+
+                                <th rowspan="2">Medium</th>
+                                <td>Flint Flinger</td>
+                                <td>MID-CENTRAL USA</td>
+                                <tr>
+                                <td>Carousel Rides</td>
+                                <td>NORTH CENTRAL NA</td>
+                                </tr>
+
+                                <th rowspan="2">Hard</th>
+                                <td>Office Number</td>
+                                <td>SOUTHEAST</td>
+                                <tr>
+                                <td>Where Have You Bin?</td>
+                                <td>SOUTHERN CALIFORNIA</td>
+                                </tr>
+                        </tr>
+                </table>
 
         </div>
 
@@ -53,14 +93,39 @@
         </div>
 
         <div id="About" class="tabcontent">
+                <h2 style="text-align: center;"><br>The Purpose</h2>
+                <h3>
+                        Goal: Introduce competitive programming to new students and interested students, as well as aid programming students in understanding complex data structures 
+                        and algorithms. Educators can also utilize our primer to improve their teaching.<br>
+                </h3>
+                <h3>
+                        Motivation: Many students are interested in competitive programming, but don’t know where to start. There are also many more students who either are lacking in 
+                        their understanding of data structure and algorithm fundamentals, or wish to deepen their knowledge of said material.
+                </h3>
+
                 <h2 style="text-align: center;"><br>The Team</h2>
-                <p>
-                        <div id="jonImg"> Jon Ayuco<br> </div>
+                <h4 class="team">
+                        <span>Jon Ayuco - Website<br>jayuco2021@my.fit.edu</span>
                         
-                        Pedro Marcet<br>
+                        <span>Pedro Marcet - Database<br>pmarcet2023@my.fit.edu</span>
                         
-                        Ivan Mariott<br>
-                </p>
+                        <span>Ivan Mariott - Manim+ Visualizer<br>imarriott2023@my.fit.edu</span>
+                </h4>
+
+                <h2 style="text-align: center;"><br>The Documents</h2>
+                <h4 class="team">
+                        <span>Design Document</span>
+                        
+                        <span>Requirements Document</span>
+                        
+                        <span>Testing Document</span>
+                </h4>
+                <h4 class="document">
+                        
+                        <iframe src="Design Document - Competitive Programming Primer.htm" width="800" height="600"></iframe>
+                        <iframe src="Requirements Document - Competitive Programming Primer.htm" width="800" height="600"></iframe>
+                        <iframe src="Testing Document - Competitive Programming Primer.htm" width="800" height="600"></iframe>
+                </h4>
         </div> 
 
 
