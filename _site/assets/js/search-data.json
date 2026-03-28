@@ -1,0 +1,79 @@
+{"0": {
+    "doc": "About Us",
+    "title": "The Purpose",
+    "content": " ",
+    "url": "/about.html#the-purpose",
+    
+    "relUrl": "/about.html#the-purpose"
+  },"1": {
+    "doc": "About Us",
+    "title": "Goal",
+    "content": "Introduce competitive programming to new students and help programming students understand complex data structures and algorithms. ",
+    "url": "/about.html#goal",
+    
+    "relUrl": "/about.html#goal"
+  },"2": {
+    "doc": "About Us",
+    "title": "Motivation",
+    "content": "Many students are interested in competitive programming, but do not know where to start. ",
+    "url": "/about.html#motivation",
+    
+    "relUrl": "/about.html#motivation"
+  },"3": {
+    "doc": "About Us",
+    "title": "The Team",
+    "content": ". | Jon Ayuco — Website | Pedro Marcet — Database | Ivan Mariott — Manim+ Visualizer | . ",
+    "url": "/about.html#the-team",
+    
+    "relUrl": "/about.html#the-team"
+  },"4": {
+    "doc": "About Us",
+    "title": "About Us",
+    "content": " ",
+    "url": "/about.html",
+    
+    "relUrl": "/about.html"
+  },"5": {
+    "doc": "Hackpack Download",
+    "title": "Hackpack",
+    "content": " ",
+    "url": "/hackpack.html#hackpack",
+    
+    "relUrl": "/hackpack.html#hackpack"
+  },"6": {
+    "doc": "Hackpack Download",
+    "title": "Hackpack Download",
+    "content": " ",
+    "url": "/hackpack.html",
+    
+    "relUrl": "/hackpack.html"
+  },"7": {
+    "doc": "Home",
+    "title": "Competitive Programming Primer",
+    "content": "Welcome to the website! . This site introduces competitive programming to new students and provides resources for problem practice, algorithm study, and learning tools. ",
+    "url": "/#competitive-programming-primer",
+    
+    "relUrl": "/#competitive-programming-primer"
+  },"8": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"9": {
+    "doc": "Problem Repository",
+    "title": "Problem Repository",
+    "content": " ",
+    "url": "/problems.html",
+    
+    "relUrl": "/problems.html"
+  },"10": {
+    "doc": "Problem Repository",
+    "title": "Suggested Problems",
+    "content": "| Difficulty | Problem | Region | . | Trivial | Velkomin! | Southeast | . | Trivial | Til hamingju | South Central | . | Easy | Birthday Memorization | Rocky Mountain | . | Easy | Skammstöfun | Mid-Atlantic USA | . | Medium | Flint Flinger | Mid-Central USA | . | Medium | Carousel Rides | North Central NA | . | Hard | Office Number | Southeast | . | Hard | Where Have You Bin? | Southern California | . ",
+    "url": "/problems.html#suggested-problems",
+    
+    "relUrl": "/problems.html#suggested-problems"
+  }
+}

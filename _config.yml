@@ -1,2 +1,10 @@
 title: Competitive Programming Primer
-theme: minima
+description: A repository of competitive programming problems and resources
+
+theme: just-the-docs
+
+color_scheme: dark
+search_enabled: true
+nav_enabled: true
+
+logo: "/assets/images/logo.png"
