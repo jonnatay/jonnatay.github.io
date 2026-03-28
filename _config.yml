@@ -1,9 +1,12 @@
 title: Competitive Programming Primer
 description: A repository of competitive programming problems and resources
 
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
-color_scheme: dark
+plugins:
+  - jekyll-remote-theme
+
+color_scheme: light
 search_enabled: true
 nav_enabled: true
 
