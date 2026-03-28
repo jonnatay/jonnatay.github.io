@@ -1,0 +1,10 @@
+title: Competitive Programming Primer
+description: A primer for learning competitive programming
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+
+color_scheme: light
+
+nav_enabled: true
+search_enabled: true
