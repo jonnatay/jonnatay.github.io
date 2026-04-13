@@ -17,13 +17,17 @@
       --label-fill: #6b7280;
       --label-shadow: rgba(255, 255, 255, 0.85);
       --active-stroke: #1d4ed8;
-      --southern-california-fill: #d8cec8;
+      --pacific-northwest-fill: #d8cec8;
+      --southern-california-fill: #efd4ba;
       --rocky-mountain-fill: #d9cef5;
       --north-central-na-fill: #bce7e4;
-      --south-central-fill: #f4edb3;
+      --south-central-fill: #ece8ae;
+      --mexico-central-america-fill: #ffe39a;
+      --southeast-usa-fill: #d9efb6;
       --mid-central-usa-fill: #f3bfd7;
-      --mid-atlantic-usa-fill: #d9e0ff;
-      --southeast-fill: #d9efb6;
+      --mid-atlantic-usa-fill: #e9c8ee;
+      --east-central-fill: #cfd9ff;
+      --northeast-north-america-fill: #d9e0ff;
     }
 
     svg {
@@ -62,90 +66,102 @@
       filter: drop-shadow(0 5px 12px rgba(29, 78, 216, 0.24));
     }
 
-    #CA,
     #WA,
     #OR,
+    #HI,
     #BC,
     #YT,
-    #AK,
-    #HI {
-      fill: var(--southern-california-fill);
+    #AK {
+      fill: var(--pacific-northwest-fill);
     }
 
     #CO,
-    #UT,
+    #AZ,
     #ID,
     #MT,
-    #WY,
-    #NV,
     #NM,
-    #AZ,
+    #UT,
+    #WY,
     #AB,
-    #SK {
+    #SK,
+    #NT {
       fill: var(--rocky-mountain-fill);
     }
 
-    #ON,
+    #CA,
+    #NV {
+      fill: var(--southern-california-fill);
+    }
+
     #MN,
-    #MB,
+    #WI,
+    #IA,
     #ND,
     #SD,
     #NE,
     #KS,
-    #IA,
-    #WI,
-    #MI,
-    #NT,
+    #MB,
+    #ON,
     #NU {
       fill: var(--north-central-na-fill);
     }
 
     #TX,
     #OK,
-    #AR,
-    #LA,
-    #MX {
+    #LA {
       fill: var(--south-central-fill);
     }
 
-    #IL,
-    #MO,
-    #IN,
+    #MX {
+      fill: var(--mexico-central-america-fill);
+    }
+
+    #FL,
+    #MS,
+    #AL,
+    #GA,
+    #SC {
+      fill: var(--southeast-usa-fill);
+    }
+
+    #AR,
+    #TN,
     #KY,
-    #OH,
-    #WV {
+    #MO,
+    #IL {
       fill: var(--mid-central-usa-fill);
     }
 
-    #NY,
-    #PA,
-    #QC,
-    #NB,
-    #NS,
-    #NL,
-    #PE,
+    #NC,
+    #VA,
+    #WV,
+    #MD,
+    #DE,
+    #NJ,
+    #DC {
+      fill: var(--mid-atlantic-usa-fill);
+    }
+
+    #MI,
+    #IN,
+    #OH,
+    #PA {
+      fill: var(--east-central-fill);
+    }
+
     #ME,
     #NH,
     #VT,
     #MA,
     #RI,
     #CT,
-    #NJ,
-    #DE,
-    #MD,
-    #DC,
-    #VA {
-      fill: var(--mid-atlantic-usa-fill);
-    }
-
-    #GA,
-    #FL,
-    #AL,
-    #MS,
-    #SC,
-    #NC,
-    #TN {
-      fill: var(--southeast-fill);
+    #NY,
+    #QC,
+    #NB,
+    #NS,
+    #PE,
+    #NL {
+      fill: var(--northeast-north-america-fill);
     }
 
     .region-label {
@@ -376,14 +392,19 @@
     <text class="region-label" x="108" y="786">World</text>
     <text class="region-label small" x="124" y="812">outside NA</text>
 
-    <text class="region-label" x="445" y="610">
-      <tspan x="445" dy="0">Southern</tspan>
-      <tspan x="445" dy="18">California</tspan>
+    <text class="region-label small" x="380" y="472">
+      <tspan x="380" dy="0">Pacific</tspan>
+      <tspan x="380" dy="18">Northwest</tspan>
     </text>
 
-    <text class="region-label" x="577" y="573">
-      <tspan x="577" dy="0">Rocky</tspan>
-      <tspan x="577" dy="18">Mountain</tspan>
+    <text class="region-label" x="455" y="617">
+      <tspan x="455" dy="0">Southern</tspan>
+      <tspan x="455" dy="18">California</tspan>
+    </text>
+
+    <text class="region-label" x="579" y="566">
+      <tspan x="579" dy="0">Rocky</tspan>
+      <tspan x="579" dy="18">Mountain</tspan>
     </text>
 
     <text class="region-label" x="652" y="388">
@@ -396,16 +417,36 @@
       <tspan x="662" dy="18">Central</tspan>
     </text>
 
+    <text class="region-label small" x="603" y="814">
+      <tspan x="603" dy="0">Mexico and</tspan>
+      <tspan x="603" dy="18">Central</tspan>
+      <tspan x="603" dy="18">America</tspan>
+    </text>
+
+    <text class="region-label" x="804" y="688">
+      <tspan x="804" dy="0">Southeast</tspan>
+      <tspan x="804" dy="18">USA</tspan>
+    </text>
+
     <text class="region-label" x="744" y="608">
       <tspan x="744" dy="0">Mid-Central</tspan>
       <tspan x="744" dy="18">USA</tspan>
     </text>
 
-    <text class="region-label small" x="856" y="522">
-      <tspan x="856" dy="0">Mid-Atlantic</tspan>
-      <tspan x="856" dy="18">USA</tspan>
+    <text class="region-label small" x="854" y="607">
+      <tspan x="854" dy="0">Mid-Atlantic</tspan>
+      <tspan x="854" dy="18">USA</tspan>
     </text>
 
-    <text class="region-label" x="804" y="688">Southeast</text>
+    <text class="region-label" x="794" y="559">
+      <tspan x="794" dy="0">East</tspan>
+      <tspan x="794" dy="18">Central</tspan>
+    </text>
+
+    <text class="region-label small" x="879" y="468">
+      <tspan x="879" dy="0">Northeast</tspan>
+      <tspan x="879" dy="18">North</tspan>
+      <tspan x="879" dy="18">America</tspan>
+    </text>
   </g>
 </svg>

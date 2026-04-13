@@ -18,40 +18,60 @@ document.addEventListener("DOMContentLoaded", async () => {
       keywords: ["world", "world finals", "global"],
       memberIds: ["world"]
     },
+    "pacific-northwest": {
+      label: "Pacific Northwest",
+      keywords: ["pacific northwest", "pacific northwest regional", "pnw", "northwest"],
+      memberIds: ["WA", "OR", "HI", "BC", "YT", "AK"]
+    },
     "southern-california": {
       label: "Southern California",
-      keywords: ["southern california", "socal"],
-      memberIds: ["CA", "WA", "OR", "BC", "YT", "AK", "HI"]
+      keywords: ["southern california", "southern california regional", "socal"],
+      memberIds: ["CA", "NV"]
     },
     "rocky-mountain": {
       label: "Rocky Mountain",
       keywords: ["rocky mountain", "rocky mountain regional"],
-      memberIds: ["CO", "UT", "ID", "MT", "WY", "NV", "NM", "AZ", "AB", "SK"]
+      memberIds: ["CO", "AZ", "ID", "MT", "NM", "UT", "WY", "AB", "SK", "NT"]
     },
     "south-central": {
       label: "South Central",
       keywords: ["south central", "south central usa"],
-      memberIds: ["TX", "OK", "AR", "LA", "MX"]
+      memberIds: ["TX", "OK", "LA"]
+    },
+    "mexico-central-america": {
+      label: "Mexico and Central America",
+      keywords: ["mexico and central america", "mexico", "central america"],
+      memberIds: ["MX"]
     },
     "north-central-na": {
       label: "North Central NA",
       keywords: ["north central na", "north central north america", "north central"],
-      memberIds: ["ON", "MN", "MB", "ND", "SD", "NE", "KS", "IA", "WI", "MI", "NT", "NU"]
+      memberIds: ["MN", "WI", "IA", "ND", "SD", "NE", "KS", "MB", "ON", "NU"]
+    },
+    "southeast-usa": {
+      label: "Southeast USA",
+      keywords: ["southeast usa", "southeast", "south east", "southeastern"],
+      memberIds: ["FL", "MS", "AL", "GA", "SC"]
     },
     "mid-central-usa": {
       label: "Mid-Central USA",
       keywords: ["mid central usa", "mid central"],
-      memberIds: ["IL", "MO", "IN", "KY", "OH", "WV"]
+      memberIds: ["IL", "AR", "TN", "KY", "MO"]
     },
     "mid-atlantic-usa": {
       label: "Mid-Atlantic USA",
       keywords: ["mid atlantic usa", "mid atlantic"],
-      memberIds: ["NY", "PA", "QC", "NB", "NS", "NL", "PE", "ME", "NH", "VT", "MA", "RI", "CT", "NJ", "DE", "MD", "DC", "VA"]
+      memberIds: ["VA", "NC", "WV", "MD", "DE", "NJ", "DC"]
     },
-    southeast: {
-      label: "Southeast",
-      keywords: ["southeast", "south east", "southeastern"],
-      memberIds: ["GA", "FL", "AL", "MS", "SC", "NC", "TN"]
+    "east-central": {
+      label: "East Central",
+      keywords: ["east central", "east central regional", "east central usa"],
+      memberIds: ["OH", "MI", "IN", "PA"]
+    },
+    "northeast-north-america": {
+      label: "Northeast North America",
+      keywords: ["northeast north america", "northeast north american", "northeast", "northeastern"],
+      memberIds: ["NY", "ME", "NH", "VT", "MA", "RI", "CT", "QC", "NB", "NS", "PE", "NL"]
     }
   };
 
