@@ -24,6 +24,13 @@
       stroke: #94a3b8;
       stroke-width: 3;
     }
+    .world-region {
+      fill: #f1f5f9;
+      stroke: #cbd5e1;
+      stroke-width: 1.8;
+      fill-rule: evenodd;
+      clip-rule: evenodd;
+    }
     .region {
       fill: #dbeafe;
       stroke: #1d4ed8;
@@ -72,6 +79,34 @@
   <rect class="ocean" x="0" y="0" width="960" height="620" rx="24"/>
   <rect class="frame" x="18" y="18" width="924" height="584" rx="22"/>
 
+  <path id="world" class="region world-region" d="
+    M30,30
+    H930
+    V590
+    H30
+    Z
+    M124,136
+    C164,96 214,72 278,66
+    C346,60 418,78 474,116
+    C516,144 546,186 560,236
+    C586,224 616,226 642,246
+    C680,276 694,316 686,360
+    C678,404 652,444 616,470
+    C588,490 554,504 520,510
+    C484,516 444,510 412,494
+    C386,482 360,468 332,462
+    C292,454 258,436 232,404
+    C198,364 168,332 154,284
+    C138,232 134,184 124,136
+    Z
+    M636,458
+    C650,470 664,490 668,508
+    C672,528 666,548 650,564
+    C636,578 614,584 596,578
+    C580,572 570,556 572,538
+    C576,508 600,480 636,458
+    Z"/>
+
   <path class="continent" d="
     M124,136
     C164,96 214,72 278,66
@@ -104,7 +139,13 @@
   <path id="southeast" class="region" d="M438,338 L500,352 L552,344 L578,394 L538,450 L466,456 L436,406 Z"/>
 
   <text class="label" x="480" y="88">North America</text>
-  <text class="subtle" x="480" y="112">Select a region to browse matching contest problems</text>
+  <text class="subtle" x="480" y="112">Select a North America region or the surrounding World area</text>
+
+  <text class="label" x="792" y="154">World</text>
+  <text class="subtle" x="792" y="176">outside NA</text>
+
+  <text class="label" x="174" y="520">World</text>
+  <text class="subtle" x="174" y="542">outside NA</text>
 
   <text class="region-text" x="250" y="352">
     <tspan x="250" dy="0">Southern</tspan>

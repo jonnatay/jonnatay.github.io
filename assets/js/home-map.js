@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const REGION_DEFINITIONS = {
+    world: {
+      label: "World",
+      keywords: ["world", "world finals", "global"]
+    },
     "southern-california": {
       label: "Southern California",
       keywords: ["southern california", "socal"]
@@ -149,7 +153,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const genericNorthAmericaMatches = getGenericNorthAmericaMatches();
+    const genericNorthAmericaMatches = regionId === "world"
+      ? []
+      : getGenericNorthAmericaMatches();
+
     if (genericNorthAmericaMatches.length) {
       problemsEl.innerHTML = buildProblemList(
         genericNorthAmericaMatches,
