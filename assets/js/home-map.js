@@ -15,35 +15,43 @@ document.addEventListener("DOMContentLoaded", async () => {
   const REGION_DEFINITIONS = {
     world: {
       label: "World",
-      keywords: ["world", "world finals", "global"]
+      keywords: ["world", "world finals", "global"],
+      memberIds: ["world"]
     },
     "southern-california": {
       label: "Southern California",
-      keywords: ["southern california", "socal"]
+      keywords: ["southern california", "socal"],
+      memberIds: ["CA", "WA", "OR", "BC", "YT", "AK", "HI"]
     },
     "rocky-mountain": {
       label: "Rocky Mountain",
-      keywords: ["rocky mountain", "rocky mountain regional"]
+      keywords: ["rocky mountain", "rocky mountain regional"],
+      memberIds: ["CO", "UT", "ID", "MT", "WY", "NV", "NM", "AZ", "AB", "SK"]
     },
     "south-central": {
       label: "South Central",
-      keywords: ["south central", "south central usa"]
+      keywords: ["south central", "south central usa"],
+      memberIds: ["TX", "OK", "AR", "LA", "MX"]
     },
     "north-central-na": {
       label: "North Central NA",
-      keywords: ["north central na", "north central north america", "north central"]
+      keywords: ["north central na", "north central north america", "north central"],
+      memberIds: ["ON", "MN", "MB", "ND", "SD", "NE", "KS", "IA", "WI", "MI", "NT", "NU"]
     },
     "mid-central-usa": {
       label: "Mid-Central USA",
-      keywords: ["mid central usa", "mid central"]
+      keywords: ["mid central usa", "mid central"],
+      memberIds: ["IL", "MO", "IN", "KY", "OH", "WV"]
     },
     "mid-atlantic-usa": {
       label: "Mid-Atlantic USA",
-      keywords: ["mid atlantic usa", "mid atlantic"]
+      keywords: ["mid atlantic usa", "mid atlantic"],
+      memberIds: ["NY", "PA", "QC", "NB", "NS", "NL", "PE", "ME", "NH", "VT", "MA", "RI", "CT", "NJ", "DE", "MD", "DC", "VA"]
     },
     southeast: {
       label: "Southeast",
-      keywords: ["southeast", "south east", "southeastern"]
+      keywords: ["southeast", "south east", "southeastern"],
+      memberIds: ["GA", "FL", "AL", "MS", "SC", "NC", "TN"]
     }
   };
 
@@ -119,21 +127,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     return allProblems.filter(problem => GENERIC_NA_TAGS.has(normalizeText(problem.region)));
   }
 
+  function getRegionElements(svgDoc, regionId) {
+    const regionDefinition = REGION_DEFINITIONS[regionId];
+    if (!svgDoc || !regionDefinition) {
+      return [];
+    }
+
+    const elements = [];
+    const seen = new Set();
+
+    (regionDefinition.memberIds || [regionId]).forEach(memberId => {
+      const memberEl = svgDoc.getElementById(memberId);
+      if (memberEl && !seen.has(memberEl)) {
+        elements.push(memberEl);
+        seen.add(memberEl);
+      }
+    });
+
+    svgDoc.querySelectorAll(`[data-region-id="${regionId}"]`).forEach(memberEl => {
+      if (!seen.has(memberEl)) {
+        elements.push(memberEl);
+        seen.add(memberEl);
+      }
+    });
+
+    return elements;
+  }
+
   function updateActiveRegion(svgDoc, nextRegionId) {
     if (!svgDoc) {
       return;
     }
 
     if (activeRegionId) {
-      const previousRegion = svgDoc.getElementById(activeRegionId);
-      if (previousRegion) {
-        previousRegion.classList.remove("is-active");
-      }
+      getRegionElements(svgDoc, activeRegionId).forEach(regionEl => {
+        regionEl.classList.remove("is-active");
+      });
     }
 
-    const nextRegion = svgDoc.getElementById(nextRegionId);
-    if (nextRegion) {
-      nextRegion.classList.add("is-active");
+    const nextRegionElements = getRegionElements(svgDoc, nextRegionId);
+    nextRegionElements.forEach(regionEl => {
+      regionEl.classList.add("is-active");
+    });
+
+    if (nextRegionElements.length) {
       activeRegionId = nextRegionId;
     }
   }
@@ -177,27 +214,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     let boundRegions = 0;
 
     Object.entries(REGION_DEFINITIONS).forEach(([regionId, regionDefinition]) => {
-      const regionEl = svgDoc.getElementById(regionId);
-      if (!regionEl) {
+      const regionElements = getRegionElements(svgDoc, regionId);
+      if (!regionElements.length) {
         return;
       }
 
       boundRegions += 1;
-      regionEl.style.cursor = "pointer";
-      regionEl.setAttribute("tabindex", "0");
-      regionEl.setAttribute("role", "button");
-      regionEl.setAttribute("aria-label", `Show problems for ${regionDefinition.label}`);
-
       const activateRegion = () => {
         renderProblems(regionId, svgDoc);
       };
 
-      regionEl.addEventListener("click", activateRegion);
-      regionEl.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          activateRegion();
+      let focusTargetAssigned = false;
+
+      regionElements.forEach(regionEl => {
+        regionEl.style.cursor = "pointer";
+
+        const isFocusable = regionEl.dataset.focusable === "true";
+        if (isFocusable || !focusTargetAssigned) {
+          regionEl.setAttribute("tabindex", "0");
+          regionEl.setAttribute("role", "button");
+          regionEl.setAttribute("aria-label", `Show problems for ${regionDefinition.label}`);
+          focusTargetAssigned = true;
         }
+
+        regionEl.addEventListener("click", activateRegion);
+        regionEl.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            activateRegion();
+          }
+        });
       });
     });
 
