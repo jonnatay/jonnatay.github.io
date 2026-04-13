@@ -50,18 +50,32 @@
   },"7": {
     "doc": "Home",
     "title": "Competitive Programming Primer",
-    "content": "Welcome to the website! . This site introduces competitive programming to new students and provides resources for problem practice, algorithm study, and learning tools. ",
+    "content": "Welcome to the website! . If you wish to tackle ICPC contest problems from North America, explore the regional map below. If you want to practice curated problems from Kattis or browse the full repository, the Problem Repository is available in the left navigation. ",
     "url": "/#competitive-programming-primer",
     
     "relUrl": "/#competitive-programming-primer"
   },"8": {
+    "doc": "Home",
+    "title": "Explore Problems by North America Region",
+    "content": "Your browser does not support SVG maps. Select a North America region to load matching problems from Supabase. ",
+    "url": "/#explore-problems-by-north-america-region",
+    
+    "relUrl": "/#explore-problems-by-north-america-region"
+  },"9": {
+    "doc": "Home",
+    "title": "Select a region",
+    "content": "Click a region on the map to view problems. ",
+    "url": "/#region-title",
+    
+    "relUrl": "/#region-title"
+  },"10": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
     
     "relUrl": "/"
-  },"9": {
+  },"11": {
     "doc": "Problem Repository",
     "title": "Problem Repository",
     "content": "Browse practice problems from the database. Loading problems... ",

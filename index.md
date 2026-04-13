@@ -8,20 +8,25 @@ nav_order: 1
 
 Welcome to the website!
 
-If you wish to tackle ICPC contest problems given in a specific region, explore the map below, and if you wish to practice curated problems from Kattis or just wish to browse through problems, our Problem Repository is also available on the left!
+If you wish to tackle ICPC contest problems from North America, explore the regional map below. If you want to practice curated problems from Kattis or browse the full repository, the Problem Repository is available in the left navigation.
 
-## Explore Problems by Region
+## Explore Problems by North America Region
 
 <div id="map-wrapper" style="margin: 2rem 0;">
-    <object
-        id="world-map-object"
-        type="image/svg+xml"
-        data="/assets/images/world-map.svg"
-        style="width: 100%; max-width: 1000px; height: auto;"
-    >
-  Your browser does not support SVG maps.
-</object>
+  <object
+    id="world-map-object"
+    type="image/svg+xml"
+    data="/assets/images/world-map.svg"
+    style="width: 100%; max-width: 960px; height: auto;"
+    aria-label="North America ICPC regional map"
+  >
+    Your browser does not support SVG maps.
+  </object>
 </div>
+
+<p style="margin-top: -0.5rem; color: #94a3b8;">
+  Select a North America region to load matching problems from Supabase.
+</p>
 
 <div id="region-info">
   <h2 id="region-title">Select a region</h2>
