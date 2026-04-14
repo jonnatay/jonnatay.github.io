@@ -76,6 +76,27 @@
     
     "relUrl": "/"
   },"11": {
+    "doc": "Manim Visualizer",
+    "title": "Manim Visualizer",
+    "content": "Use the custom Manim harness from this project to submit algorithm visualization code and receive a rendered .mp4 once the backend job finishes. This v1 visualizer accepts the custom Node, ManimList, and manimScene runtime from manimTest.py. Plain Manim scene classes are not supported in this browser flow yet. Load an example or paste custom harness code, then submit a render job. ",
+    "url": "/manim-visualizer.html",
+    
+    "relUrl": "/manim-visualizer.html"
+  },"12": {
+    "doc": "Manim Visualizer",
+    "title": "Editor",
+    "content": "Example files below are served directly from this site and can be used as a starting point. Visualization Code Render MP4 Clear Output ",
+    "url": "/manim-visualizer.html",
+    
+    "relUrl": "/manim-visualizer.html"
+  },"13": {
+    "doc": "Manim Visualizer",
+    "title": "Job Details",
+    "content": ". | API Base Same origin | Current Job Not started | Status Idle | Message Waiting for a submission. | . Rendered Video . Download MP4 . Render Error . ",
+    "url": "/manim-visualizer.html",
+    
+    "relUrl": "/manim-visualizer.html"
+  },"14": {
     "doc": "Problem Repository",
     "title": "Problem Repository",
     "content": "Browse practice problems from the database. Loading problems... ",

@@ -1,0 +1,26 @@
+#!/bin/bash
+docker buildx create --name tempbuilder --use
+docker buildx build --no-cache --builder tempbuilder --load -t manimtest .
+docker run -d --name temp_manim --memory="512m" --cpus="1.0" manimtest manim -ql  --resolution 1920,1080 manimTest.py -o videoName -- --mainScene $1
+sleep 3600 &
+SLEEP_PID=$!
+
+(
+  wait $SLEEP_PID
+  docker kill temp_manim
+) &
+SHELL_PID=$!
+docker logs -f temp_manim
+docker wait temp_manim
+kill $SLEEP_PID
+kill $SHELL_PID
+docker cp temp_manim:/app/media ./media
+docker rm temp_manim
+docker rmi -f manimtest
+docker builder prune --builder tempbuilder -f
+docker buildx rm tempbuilder
+docker rmi moby/buildkit:buildx-stable-1
+cp media/videos/*/1080p15/*.mp4 out.mp4
+#cp media/media/videos/*/1080p15/*.mp4 out.mp4
+#rm -rf media
+docker system df

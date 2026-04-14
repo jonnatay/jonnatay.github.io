@@ -6,5 +6,11 @@ theme: just-the-docs
 color_scheme: dark
 search_enabled: true
 nav_enabled: true
+exclude:
+  - backend
 
 logo: "/assets/images/logo.png"
+
+manim_visualizer:
+  api_base: ""
+  turnstile_site_key: ""
