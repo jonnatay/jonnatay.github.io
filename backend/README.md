@@ -44,6 +44,30 @@ cd E:\jonnatay.github.io\backend
 python -m app.worker
 ```
 
+## Dockerized Backend
+
+This repo now includes dedicated Docker images for the API, worker, and Redis:
+
+- `Dockerfile.api`
+- `Dockerfile.worker`
+- `Dockerfile.redis`
+- `docker-compose.yml`
+
+From `E:\jonnatay.github.io\backend`, the usual flow is:
+
+```powershell
+docker build -t manim-visualizer-runtime .\manim_runtime
+docker compose up --build
+```
+
+The compose stack starts:
+
+- `redis` on port `6379`
+- `api` on port `8000`
+- `worker` with `/var/run/docker.sock` mounted so it can launch isolated Manim render containers
+
+Keep `REDIS_URL=redis://redis:6379/0` in `.env` when using this compose stack. The `worker` container does not run Docker-in-Docker; it uses the host Docker daemon through the mounted socket.
+
 ## Important Constraints
 
 - The browser does **not** need Docker to play finished MP4 files.
