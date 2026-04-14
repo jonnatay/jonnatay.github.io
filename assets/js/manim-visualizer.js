@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const turnstileEl = document.getElementById("manim-turnstile");
 
   const apiBase = String(root.dataset.apiBase || "").trim();
-  const normalizedApiBase = apiBase.replace(/\/+$/, "").replace(/\/api$/i, "");
   const turnstileSiteKey = String(root.dataset.turnstileSiteKey || "").trim();
   const pollIntervalMs = 3000;
 
@@ -52,64 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentJob = null;
   let pollTimer = null;
   let turnstileWidgetId = null;
-  let apiHealthy = false;
 
   function apiUrl(path) {
-    if (!normalizedApiBase) {
+    if (!apiBase) {
       return path;
     }
 
-    return `${normalizedApiBase}${path}`;
-  }
-
-  async function readJsonResponse(response, fallbackMessage) {
-    const responseText = await response.text();
-    if (!responseText) {
-      const fromUrl = response.url ? ` from ${response.url}` : "";
-      throw new Error(
-        `${fallbackMessage} The server returned an empty response (HTTP ${response.status}${fromUrl}). ` +
-        "This usually means the request is not reaching the FastAPI backend. Check manim_visualizer.api_base " +
-        "or add a Netlify redirect/proxy for /api/*."
-      );
-    }
-
-    try {
-      return JSON.parse(responseText);
-    } catch (error) {
-      const preview = responseText.replace(/\s+/g, " ").trim().slice(0, 180);
-      throw new Error(
-        `${fallbackMessage} Expected JSON but received ${
-          response.headers.get("content-type") || "an unknown content type"
-        } (HTTP ${response.status}${response.url ? ` from ${response.url}` : ""}).${
-          preview ? ` Response preview: ${preview}` : ""
-        }`
-      );
-    }
-  }
-
-  async function checkApiHealth() {
-    const url = apiUrl("/healthz");
-
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      const payload = await readJsonResponse(response, "The API health check failed.");
-
-      if (!response.ok || payload.status !== "ok") {
-        throw new Error("The API health check did not return the expected response.");
-      }
-
-      apiHealthy = true;
-      return true;
-    } catch (error) {
-      apiHealthy = false;
-      submitButtonEl.disabled = true;
-      setStatus(
-        `${error.message || "The API is not reachable."} Configure manim_visualizer.api_base to point at your FastAPI deployment.`,
-        "danger"
-      );
-      jobMessageEl.textContent = "API connection failed before any render job could be submitted.";
-      return false;
-    }
+    return `${apiBase.replace(/\/$/, "")}${path}`;
   }
 
   function setStatus(message, tone = "neutral") {
@@ -218,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
       url.searchParams.set("access_token", currentJob.accessToken);
 
       const response = await fetch(url.toString(), { cache: "no-store" });
-      const payload = await readJsonResponse(response, "Failed to load render status.");
+      const payload = await response.json();
 
       if (!response.ok) {
         throw new Error(payload.detail || "Failed to load render status.");
@@ -268,10 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (!apiHealthy && !(await checkApiHealth())) {
-      return;
-    }
-
     setBusy(true);
     resetOutput();
     setStatus("Submitting render job...", "neutral");
@@ -289,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
       });
 
-      const payload = await readJsonResponse(response, "The backend rejected this render request.");
+      const payload = await response.json();
       if (!response.ok) {
         throw new Error(payload.detail || "The backend rejected this render request.");
       }
@@ -318,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initTurnstile() {
-    apiBaseDisplayEl.textContent = normalizedApiBase || "Same origin";
+    apiBaseDisplayEl.textContent = apiBase || "Same origin";
 
     if (!turnstileSiteKey) {
       captchaNoteEl.textContent = "CAPTCHA is not configured on this site. Local development requires backend bypass mode.";
@@ -354,7 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderExampleButtons();
   initTurnstile();
   resetOutput();
-  checkApiHealth();
 
   submitButtonEl.addEventListener("click", submitRender);
   clearButtonEl.addEventListener("click", () => {
