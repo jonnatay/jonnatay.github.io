@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentJob = null;
   let pollTimer = null;
   let turnstileWidgetId = null;
+  let apiHealthy = false;
 
   function apiUrl(path) {
     if (!normalizedApiBase) {
@@ -64,7 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
   async function readJsonResponse(response, fallbackMessage) {
     const responseText = await response.text();
     if (!responseText) {
-      throw new Error(`${fallbackMessage} The server returned an empty response.`);
+      const fromUrl = response.url ? ` from ${response.url}` : "";
+      throw new Error(
+        `${fallbackMessage} The server returned an empty response (HTTP ${response.status}${fromUrl}). ` +
+        "This usually means the request is not reaching the FastAPI backend. Check manim_visualizer.api_base " +
+        "or add a Netlify redirect/proxy for /api/*."
+      );
     }
 
     try {
@@ -74,8 +80,35 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error(
         `${fallbackMessage} Expected JSON but received ${
           response.headers.get("content-type") || "an unknown content type"
-        } (HTTP ${response.status}).${preview ? ` Response preview: ${preview}` : ""}`
+        } (HTTP ${response.status}${response.url ? ` from ${response.url}` : ""}).${
+          preview ? ` Response preview: ${preview}` : ""
+        }`
       );
+    }
+  }
+
+  async function checkApiHealth() {
+    const url = apiUrl("/healthz");
+
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      const payload = await readJsonResponse(response, "The API health check failed.");
+
+      if (!response.ok || payload.status !== "ok") {
+        throw new Error("The API health check did not return the expected response.");
+      }
+
+      apiHealthy = true;
+      return true;
+    } catch (error) {
+      apiHealthy = false;
+      submitButtonEl.disabled = true;
+      setStatus(
+        `${error.message || "The API is not reachable."} Configure manim_visualizer.api_base to point at your FastAPI deployment.`,
+        "danger"
+      );
+      jobMessageEl.textContent = "API connection failed before any render job could be submitted.";
+      return false;
     }
   }
 
@@ -235,6 +268,10 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (!apiHealthy && !(await checkApiHealth())) {
+      return;
+    }
+
     setBusy(true);
     resetOutput();
     setStatus("Submitting render job...", "neutral");
@@ -317,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderExampleButtons();
   initTurnstile();
   resetOutput();
+  checkApiHealth();
 
   submitButtonEl.addEventListener("click", submitRender);
   clearButtonEl.addEventListener("click", () => {
