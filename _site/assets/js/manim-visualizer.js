@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const turnstileEl = document.getElementById("manim-turnstile");
 
   const apiBase = String(root.dataset.apiBase || "").trim();
+  const normalizedApiBase = apiBase.replace(/\/+$/, "").replace(/\/api$/i, "");
   const turnstileSiteKey = String(root.dataset.turnstileSiteKey || "").trim();
   const pollIntervalMs = 3000;
 
@@ -53,11 +54,29 @@ document.addEventListener("DOMContentLoaded", () => {
   let turnstileWidgetId = null;
 
   function apiUrl(path) {
-    if (!apiBase) {
+    if (!normalizedApiBase) {
       return path;
     }
 
-    return `${apiBase.replace(/\/$/, "")}${path}`;
+    return `${normalizedApiBase}${path}`;
+  }
+
+  async function readJsonResponse(response, fallbackMessage) {
+    const responseText = await response.text();
+    if (!responseText) {
+      throw new Error(`${fallbackMessage} The server returned an empty response.`);
+    }
+
+    try {
+      return JSON.parse(responseText);
+    } catch (error) {
+      const preview = responseText.replace(/\s+/g, " ").trim().slice(0, 180);
+      throw new Error(
+        `${fallbackMessage} Expected JSON but received ${
+          response.headers.get("content-type") || "an unknown content type"
+        } (HTTP ${response.status}).${preview ? ` Response preview: ${preview}` : ""}`
+      );
+    }
   }
 
   function setStatus(message, tone = "neutral") {
@@ -166,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       url.searchParams.set("access_token", currentJob.accessToken);
 
       const response = await fetch(url.toString(), { cache: "no-store" });
-      const payload = await response.json();
+      const payload = await readJsonResponse(response, "Failed to load render status.");
 
       if (!response.ok) {
         throw new Error(payload.detail || "Failed to load render status.");
@@ -233,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
       });
 
-      const payload = await response.json();
+      const payload = await readJsonResponse(response, "The backend rejected this render request.");
       if (!response.ok) {
         throw new Error(payload.detail || "The backend rejected this render request.");
       }
@@ -262,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initTurnstile() {
-    apiBaseDisplayEl.textContent = apiBase || "Same origin";
+    apiBaseDisplayEl.textContent = normalizedApiBase || "Same origin";
 
     if (!turnstileSiteKey) {
       captchaNoteEl.textContent = "CAPTCHA is not configured on this site. Local development requires backend bypass mode.";
