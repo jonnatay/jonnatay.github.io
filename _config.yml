@@ -12,5 +12,5 @@ exclude:
 logo: "/assets/images/logo.png"
 
 manim_visualizer:
-  api_base: ""
+  api_base: "http://localhost:8000"
   turnstile_site_key: ""
