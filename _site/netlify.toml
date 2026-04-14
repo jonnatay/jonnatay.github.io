@@ -1,3 +1,15 @@
 [build]
-  command = "jekyll build"
+  command = "bundle exec jekyll build && ruby scripts/write_netlify_redirects.rb"
   publish = "_site"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-fastapi-host.example.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/healthz"
+  to = "https://your-fastapi-host.example.com/healthz"
+  status = 200
+  force = true
