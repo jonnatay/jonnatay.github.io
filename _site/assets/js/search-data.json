@@ -64,7 +64,7 @@
   },"9": {
     "doc": "Manim Visualizer",
     "title": "Manim Visualizer",
-    "content": "Download the manimVisualizer project as a .zip archive. Download manimVisualizer.zip . The archive includes the visualizer source files, Docker setup, and example algorithms from the manimVisualizer folder. ",
+    "content": "Download our Manim Visualizer as a .zip archive. Download manimVisualizer.zip . The archive includes the visualizer source files, and example algorithms from the folder. ",
     "url": "/manim-visualizer.html",
     
     "relUrl": "/manim-visualizer.html"

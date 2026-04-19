@@ -7611,4 +7611,27 @@ div.opaque {
   max-height: 140px !important;
 }
 
+.problem-text {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.problem-text--empty {
+  margin-top: 0;
+}
+
+.problem-text__block {
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+#problem-detail .katex-display {
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+
 /*# sourceMappingURL=just-the-docs-default.css.map */
