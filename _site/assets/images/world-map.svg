@@ -11,8 +11,8 @@
 
   <style>
     :root {
-      --world-fill: #cfd4d9;
-      --world-fill-active: #bcc5ce;
+      --world-fill: #00366d;
+      --world-fill-active: #3f6b97;
       --coast-stroke: #f8fafc;
       --label-fill: #6b7280;
       --label-shadow: rgba(255, 255, 255, 0.85);

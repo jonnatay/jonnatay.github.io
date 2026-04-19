@@ -8,6 +8,7 @@ search_enabled: true
 nav_enabled: true
 exclude:
   - backend
+  - manimVisualizer
 
 logo: "/assets/images/logo.png"
 

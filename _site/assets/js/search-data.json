@@ -34,45 +34,52 @@
     
     "relUrl": "/about.html"
   },"5": {
-    "doc": "Hackpack Download",
-    "title": "Hackpack",
-    "content": " ",
-    "url": "/hackpack.html#hackpack",
-    
-    "relUrl": "/hackpack.html#hackpack"
-  },"6": {
-    "doc": "Hackpack Download",
-    "title": "Hackpack Download",
-    "content": " ",
-    "url": "/hackpack.html",
-    
-    "relUrl": "/hackpack.html"
-  },"7": {
     "doc": "Home",
     "title": "Competitive Programming Primer",
     "content": "Welcome to the website! . If you wish to tackle ICPC contest problems from North America, explore the regional map below. If you want to practice curated problems from Kattis or browse the full repository, the Problem Repository is available in the left navigation. ",
     "url": "/#competitive-programming-primer",
     
     "relUrl": "/#competitive-programming-primer"
-  },"8": {
+  },"6": {
     "doc": "Home",
     "title": "Explore Problems by North America Region",
     "content": "Your browser does not support SVG maps. Select a North America region to load matching problems from Supabase. ",
     "url": "/#explore-problems-by-north-america-region",
     
     "relUrl": "/#explore-problems-by-north-america-region"
-  },"9": {
+  },"7": {
     "doc": "Home",
     "title": "Select a region",
     "content": "Click a region on the map to view problems. ",
     "url": "/#region-title",
     
     "relUrl": "/#region-title"
-  },"10": {
+  },"8": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
+    
+    "relUrl": "/"
+  },"9": {
+    "doc": "Manim Visualizer",
+    "title": "Manim Visualizer",
+    "content": "Download the manimVisualizer project as a .zip archive. Download manimVisualizer.zip . The archive includes the visualizer source files, Docker setup, and example algorithms from the manimVisualizer folder. ",
+    "url": "/manim-visualizer.html",
+    
+    "relUrl": "/manim-visualizer.html"
+  },"10": {
+    "doc": "Manim Visualizer",
+    "title": "Quick Start",
+    "content": "After extracting the archive, you can run the visualizer with: . manim -pql --resolution 1920,1080 manimTest.py -- --mainScene &lt;your-file.py&gt; . Sample inputs are included in the examples/ directory. ",
+    "url": "/manim-visualizer.html#quick-start",
+    
+    "relUrl": "/manim-visualizer.html#quick-start"
+  },"11": {
+    "doc": "Problem Repository",
+    "title": "Problem Repository",
+    "content": "Browse practice problems from the database. Loading problems... ",
+    "url": "/problems.html",
     
     "relUrl": "/problems.html"
   }
