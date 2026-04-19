@@ -89,27 +89,27 @@ global waittime
     #g[1].append(g[2])
     #g[2].append(g[1])
     #[ManimList([i]) for i in range(5)]
-##    manimScene.setAnimationsQuing(True)
+##    manimScene.setAnimationsQueuing(True)
 ##    [ManimList([i]) for i in range(50)]
-##    manimScene.setAnimationsQuing(True)
+##    manimScene.setAnimationsQueuing(True)
 ##    ManimList([0])
 ##    ManimList([1])
 ##    ManimList([2])
-##    manimScene.setAnimationsQuing(False)
+##    manimScene.setAnimationsQueuing(False)
 ##    ManimList([3])
 ##    ManimList([4])
 ##    ManimList([5])
 
 ##    
 ##    import random
-##    #manimScene.setAnimationsQuing(True)
+##    #manimScene.setAnimationsQueuing(True)
 ##    g = [Node(i) for i in range(5)]
 ##    for i in g:
 ##        for j in g:
 ##            if j != i:
 ##                if random.random() < 0.5:
 ##                    i.append(j)
-##    #manimScene.setAnimationsQuing(False)
+##    #manimScene.setAnimationsQueuing(False)
 ##    q = ManimList([g[0]])
 ##    sean = {str(g[0]): None}
 ##    while len(q) > 0:
@@ -173,7 +173,7 @@ global waittime
 ##        new.setData(i)
 ##        new.append("null")
 ##        new.append("null")
-##        manimScene.onScreenPrint("swopping")
+##        manimScene.onScreenPrint("swpping")
 ##        right = root
 ##        while len(right) > 0:
 ##            temp = right[-1]
@@ -283,7 +283,7 @@ class manimTest(MovingCameraScene):
         self.queanimations = False
         Main()
         if self.queanimations:
-            self.setAnimationsQuing(False)
+            self.setAnimationsQueuing(False)
         self.pause(waittime)
         self.pause(speed)
     def fixCam(self, bounds):
@@ -426,7 +426,7 @@ class manimTest(MovingCameraScene):
     def pause(self, time):
         if not(self.queanimations):
             self.wait(time)
-    def setAnimationsQuing(self, value):
+    def setAnimationsQueuing(self, value):
         global speed
         if not(self.queanimations) and value:
             temp = speed
@@ -754,7 +754,7 @@ class manimTest(MovingCameraScene):
 
         manimScene.playWithEnquedAnimations(arr)
         manimScene.pause(waittime)
-    def swop(self, s, e):
+    def swap(self, s, e):
         global speed
         temp = speed
         speed = 0.0666667
@@ -781,13 +781,13 @@ class manimTest(MovingCameraScene):
         al = self.findTextLocation(a)
         bl = self.findTextLocation(b)
         if not(a) or not(b):
-            raise Exception("""you did not pass valid tipes in to the swop function. my best guess as to why this happened is you probubly did somthing like:
+            raise Exception("""you did not pass valid tipes in to the swap function. my best guess as to why this happened is you probubly did somthing like:
 x = ManimList([1,2,3,4,5])
-manimScene.swop(x[0], x[1])
+manimScene.swap(x[0], x[1])
 
 however this is wrong and needs to be switched to:
 x = ManimList([1,2,3,4,5])
-manimScene.swop([x,0], [x,1])""")
+manimScene.swap([x,0], [x,1])""")
         exec(f"{oa}, {ob} = {ob}, {oa}")
         exec(f"{oat}, {obt} = {obt}, {oat}")
         manimScene.playWithEnquedAnimations([self.moveText(a, bl), self.moveText(b, al)])
@@ -856,7 +856,7 @@ class Node:
             raise Exception("you already deleated this node just because you can modify it does not mean you should. This is how use after free exploits happen")
     def deleat(self):
         self.checkGon()
-        manimScene.setAnimationsQuing(True)
+        manimScene.setAnimationsQueuing(True)
         bad = []
         for i in self.dependicyesNode:
             bad.append(self.dependicyesNode[i])
@@ -864,7 +864,7 @@ class Node:
             i.remove(self)
         while len(self) > 0:
             self.pop()
-        manimScene.setAnimationsQuing(False)
+        manimScene.setAnimationsQueuing(False)
         manimScene.playWithEnquedAnimations(manimScene.UnCreateMulti(self.manimSelf))
         manimScene.UpateNodePositions()
         self.gon = True

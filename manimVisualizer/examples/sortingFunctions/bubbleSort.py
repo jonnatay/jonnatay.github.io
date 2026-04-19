@@ -7,24 +7,24 @@ seed = random.random()
 print("seed = ", seed)
 random.seed(seed)
 
-manimScene.setAnimationsQuing(True)
+manimScene.setAnimationsQueuing(True)
 x = ManimList([])
 for i in range(6):
     x.append(int(random.random()*100))
-manimScene.setAnimationsQuing(False)
+manimScene.setAnimationsQueuing(False)
 le = len(x)
 
 for s in range(0,le):
     last = x[0]
-    noSwop = True
+    noSwap = True
     for i in range(0, le-1):
         num = x[i+1]
         if last > num:
-            noSwop = False
-            manimScene.swop([x, i], [x, i+1])
+            noSwap = False
+            manimScene.swap([x, i], [x, i+1])
         else:
             last = num
-    if noSwop:
+    if noSwap:
         break
 
 

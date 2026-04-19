@@ -1,13 +1,13 @@
 """
 Run with:
-manim -pql  --resolution 1920,1080 manimTest.py -o fenricTree -- --mainScene ./examples/fenricTree.py
+manim -pql  --resolution 1920,1080 manimTest.py -o fenwickTree -- --mainScene ./examples/fenwickTree.py
 """
 import random
 seed = random.random()
 print("seed = ", seed)
 random.seed(seed)
 
-class fenricTree:
+class fenwickTree:
     def __init__(self, n):
         self.lis = ManimList([0]*(n+1))
         self.f = (2**len(bin(n)))-1
@@ -28,7 +28,7 @@ class fenricTree:
         return ans
 
 length = 8
-fentree = fenricTree(length)
+fentree = fenwickTree(length)
 for i in range(10):
     p = int(random.random()*length)
     if (int(random.random()*2)):

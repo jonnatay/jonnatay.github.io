@@ -18,21 +18,21 @@ Nodes:
 	use .deleat() to delete a node
 Visual helps
 	onscreen display with: manimScene.onScreenPrint(<string to display>)
-	pause animation rendering with manimScene.setAnimationsQuing(True)
+	pause animation rendering with manimScene.setAnimationsQueuing(True)
 	unpause animation rendering with manimScene.setAnimationsQuing(False)
 	set playback speed with speed = <new speed in seconds>
 	set animation pause time with waittime = <new time between animations>
-	manimScene.swop(<Node/[<ManimList>, <location>]>, <Node/[<ManimList>, <location>]>) swops things see examples/swopingFunction for examples of how to use
-	manimScene.set(<Node/[<ManimList>, <location>]>, <Node/[<ManimList>, <location>]>) sets the first thing to the second see examples/swopingFunction for examples of how to use
+	manimScene.swap(<Node/[<ManimList>, <location>]>, <Node/[<ManimList>, <location>]>) swaps things see examples/swapingFunction for examples of how to use
+	manimScene.set(<Node/[<ManimList>, <location>]>, <Node/[<ManimList>, <location>]>) sets the first thing to the second see examples/swapingFunction for examples of how to use
 	with 2d arrays do not visualize the outer array
 
 Tips for visible legibility:
 	minimize unnecessary get operations by storing the results in helper variables
-	use the swop and set functions whenever possible
+	use the swap and set functions whenever possible
 	use onScreenPrint to help the user track the most current most important variables and the current state of the program 
 	allocate array memory ahead of time whenever possible to prevent visually unpleasant memory leaks
 	use * to denote an empty value
-	use manimScene.setAnimationsQuing to group steps together
+	use manimScene.setAnimationsQueuing to group steps together
 List of already imported stuff:
 	import manim as mn
 	from manim import *
@@ -49,7 +49,7 @@ List of already imported stuff:
 
 Advanced:
 	we add 2 lines to the start of your code meaning all error messages are 2 lines off in there location
-	Deleated nodes can only be used when checking == None casting types(to witch you will get None) and getting data(to witch you will get None)
+	Deleted nodes can only be used when checking == None casting types(to witch you will get None) and getting data(to witch you will get None)
 	manimScene is the main Scene and contains:
 		.quedAnimations -> a list of currently unplayed animations
 		.takenRows -> a dictionary of rows to avoid putting stuff on

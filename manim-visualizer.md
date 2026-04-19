@@ -6,7 +6,7 @@ nav_order: 3
 
 # Manim Visualizer
 
-Download the `manimVisualizer` project as a `.zip` archive.
+Download our Manim Visualizer as a `.zip` archive.
 
 <p>
   <a class="btn btn-primary" href="/assets/downloads/manimVisualizer.zip" download>
@@ -14,7 +14,7 @@ Download the `manimVisualizer` project as a `.zip` archive.
   </a>
 </p>
 
-The archive includes the visualizer source files, Docker setup, and example algorithms from the `manimVisualizer` folder.
+The archive includes the visualizer source files, and example algorithms from the folder.
 
 ## Quick Start
 

@@ -12,7 +12,7 @@ import time
 x = Node(1)
 x = Node(2)
 print("x = ", x.getData())
-x.deleat()
+x.delete()
 def crash(y):
     y<9
 #crash(x)
